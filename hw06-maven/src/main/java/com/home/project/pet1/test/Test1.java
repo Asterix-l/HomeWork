@@ -6,18 +6,29 @@ import com.home.project.pet1.annotation.Test;
 
 public class Test1 {
 
+    private static int i = 0;
+    public String str;
+
     @Before
     public int before1() {
-        return 0;
+        i = 1;
+        System.out.println(i);
+        return i;
     }
 
     @Test
     public boolean test() {
-        return false;
+        boolean b;
+        if ( i == 0) b = true;
+        else b = false;
+            System.out.println(b);
+        return b;
     }
 
     @After
-    public String after1() {
-        return null;
+    public String  after1() throws IllegalAccessException {
+        str = "OK";
+        System.out.println(str);
+        throw new IllegalAccessException();
     }
 }
