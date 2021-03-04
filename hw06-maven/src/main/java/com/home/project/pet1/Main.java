@@ -9,23 +9,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Main {
-
+    public static int tests = 0;
+    public static int passed = 0;
     public static void main(String[] args) throws ClassNotFoundException {
         Class <?> clazz =  Class.forName("com.home.project.pet1.test.Test1");
         testRunnerBefore(clazz);
         testRunnerTest(clazz);
         testRunnerAfter(clazz);
-       // Class <?> clazz2 =  Class.forName("com.home.project.pet1.test.Test2");
-        //testRunnerBefore(clazz2);
-      //  testRunnerTest(clazz2);
+        Class <?> clazz2 =  Class.forName("com.home.project.pet1.test.Test2");
+        testRunnerBefore(clazz2);
+        testRunnerTest(clazz2);
+        testRunnerAfter(clazz2);
        // Class <?> clazz3 =  Class.forName("com.home.project.pet1.test.Test3");
        // testRunnerBefore(clazz3);
        // testRunnerTest(clazz3);
     }
 
     public static void testRunnerBefore(Class testClass){
-        int tests = 0;
-        int passed = 0;
         for (Method m : testClass.getDeclaredMethods()) {
             m.getAnnotations();
             if (m.isAnnotationPresent(Before.class)) {
@@ -42,12 +42,9 @@ public class Main {
                 }
             }
         }
-        System.out.printf("Passed: %d, Failed: %d%n", passed, tests - passed);
-
     }
+
     public static void testRunnerTest(Class testClass){
-        int tests = 0;
-        int passed = 0;
         for (Method m : testClass.getDeclaredMethods()) {
             m.getAnnotations();
             if (m.isAnnotationPresent(Test.class)) {
@@ -64,13 +61,9 @@ public class Main {
                 }
             }
         }
-        System.out.printf("Passed: %d, Failed: %d%n", passed, tests - passed);
-
     }
 
     public static void testRunnerAfter(Class testClass){
-        int tests = 0;
-        int passed = 0;
         for (Method m : testClass.getDeclaredMethods()) {
             m.getAnnotations();
             if (m.isAnnotationPresent(After.class)) {
