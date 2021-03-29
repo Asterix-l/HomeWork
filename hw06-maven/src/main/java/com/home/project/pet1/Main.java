@@ -20,9 +20,7 @@ public class Main {
         testRunnerBefore(clazz2);
         testRunnerTest(clazz2);
         testRunnerAfter(clazz2);
-       // Class <?> clazz3 =  Class.forName("com.home.project.pet1.test.Test3");
-       // testRunnerBefore(clazz3);
-       // testRunnerTest(clazz3);
+
     }
 
     public static void testRunnerBefore(Class testClass){

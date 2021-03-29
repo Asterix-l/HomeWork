@@ -11,24 +11,20 @@ public class Test1 {
 
     @Before
     public int before1() {
-        i = 1;
-        System.out.println(i);
+        System.out.println("Предварительное значение i установлено равное " + (i=1));
         return i;
     }
 
     @Test
     public boolean test() {
-        boolean b;
-        if ( i == 0) b = true;
-        else b = false;
-            System.out.println(b);
-        return b;
+        System.out.println( "Равно ли значение i нулю? " + (i==0));
+        return (i==0);
     }
 
     @After
     public String  after1() throws IllegalAccessException {
-        str = "OK";
-        System.out.println(str);
+        System.out.println("Отработал After");
         throw new IllegalAccessException();
+
     }
 }
